@@ -25,11 +25,20 @@ public class EmpleadoAdministrativo extends Empleado{
                 '}';
     }
 
-    public void mostrarInfo(){
+    public String mostrarInfo(){
         System.out.println("Nombre: "+ nombre);
-        System.out.println("Edad: "+ Edad);
-        System.out.println("Salario Base: "+ salarioBase);
-        System.out.println("Bonificacion Fija: "+ bonificacionFija);
+        System.out.println("Edad: "+ Edad+" Años");
+        System.out.println("Tipo de Empleado: Administrativo");
+        System.out.println("Salario Base: $"+ salarioBase);
+        System.out.println("Bonificacion Fija: $"+ bonificacionFija);
 
+        return "";
     }
+
+    @Override
+    public double calcularSalario() {
+        return getSalarioBase() + getBonificacionFija();
+    }
+
+
 }

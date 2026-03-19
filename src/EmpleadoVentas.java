@@ -36,12 +36,18 @@ public class EmpleadoVentas extends Empleado{
                 '}';
     }
 
-    public void mostrarInfo(){
+    public String mostrarInfo(){
         System.out.println("Nombre: "+ nombre);
-        System.out.println("Edad: "+ Edad);
-        System.out.println("Salario Base: "+ salarioBase);
-        System.out.println(" Total Ventas: "+ totalVentas);
-        System.out.println("Comisión: "+ Comision);
+        System.out.println("Edad: "+ Edad+ " Años");
+        System.out.println("Tipo de Empleado: Ventas");
+        System.out.println("Salario Base: $"+ salarioBase);
+        System.out.println(" Total Ventas: "+ totalVentas+ "  Al mes");
+        System.out.println("Porcentaje de Comisión: "+ Comision+ "%");
 
+        return "";
+    }
+    @Override
+    public double calcularSalario() {
+        return getSalarioBase() + (totalVentas*Comision);
     }
 }

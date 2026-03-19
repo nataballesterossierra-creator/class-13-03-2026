@@ -42,17 +42,20 @@ public class Empleado {
     @Override
     public String toString() {
         return "Empleado{" +
-                "nombre='" + nombre + '\'' +
+                "Nombre='" + nombre + '\'' +
                 "Edad=" + Edad + '\''+
-                ", salarioBase=" + salarioBase +
+                ", SalarioBase=" + salarioBase +
                 '}';
     }
-
-
-    public void mostrarInfo(){
+    public String mostrarInfo(){
         System.out.println("Nombre: "+ nombre);
-        System.out.println("Edad: "+ Edad);
-        System.out.println("Salario Base: "+ salarioBase);
+        System.out.println("Edad: "+ Edad+ " Años");
+        System.out.println("Salario Base: $"+ salarioBase);
 
+        return "";
     }
+    public double calcularSalario() {
+        return 0;
+    }
+
 }

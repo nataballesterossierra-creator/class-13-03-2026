@@ -36,12 +36,20 @@ public class EmpleadoHoras extends Empleado{
                 '}';
     }
 
-    public void mostrarInfo(){
+    public String mostrarInfo(){
         System.out.println("Nombre: "+ nombre);
-        System.out.println("Edad: "+ Edad);
-        System.out.println("Salario Base: "+ salarioBase);
-        System.out.println("Horas Trabajadas: "+ horasTrabajadas);
-        System.out.println("Valor x Hora: "+ valorHora);
+        System.out.println("Edad: "+ Edad+ " Años");
+        System.out.println("Tipo de Empleado: x Horas");
+        System.out.println("Salario Base: $"+ salarioBase);
+        System.out.println("Horas Trabajadas: "+ horasTrabajadas+ "Al mes");
+        System.out.println("Valor x Hora: $"+ valorHora);
 
+        return "";
     }
+
+    @Override
+    public double calcularSalario() {
+        return getSalarioBase() + (horasTrabajadas*valorHora);
+    }
+
 }

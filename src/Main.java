@@ -1,3 +1,4 @@
+import javax.swing.plaf.synth.SynthOptionPaneUI;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -40,28 +41,23 @@ public class Main {
 
          */
 
-        int opc, opc1;
+        int opc, opc1, opc2;
 
-        System.out.println(" Registro de Empleados");
-        System.out.println("");
+        System.out.println(" Registro de Empleados\n");
 
         do {
-            System.out.println("Menú para el registro de empleados");
-            System.out.println("Elige una opcion: ");
-            System.out.println("");
+            System.out.println("Menú del Sistema\n");
+            System.out.println("Elige una opcion:\n ");
             System.out.println(" 1. Registrar al Empleado.");
-            System.out.println(" 2. Buscar al Empleado.");
-            System.out.println(" 3. Mostar a los Empleado.");
-            System.out.println(" 4. Calcular salario.");
-            System.out.println(" 5. Aumentar salario Base.");
-            System.out.println(" 6. Mostar a empleados mayores de edad.");
-            System.out.println(" 7. Salir.");
+            System.out.println(" 2. Mostar a los Empleado.");
+            System.out.println(" 3. Buscar Empleados.");
+            System.out.println(" 4. Salir.");
             opc= teclado.nextInt();
 
             switch (opc){
                 case 1: /* Registro*/
                     do {
-                        System.out.println("   Registrar empleados    ");
+                        System.out.println("   Registrar empleados   \n ");
                         System.out.println(" Que tipo de empleado desesa registrar");
                         System.out.println("1. Empleado Administrativo");
                         System.out.println("2. Empleado Ventas");
@@ -80,7 +76,8 @@ public class Main {
                                 double salarioBase_ad = teclado.nextDouble();
                                 System.out.println("Bonificacion Fija: ");
                                 double bonificacionFija_ad = teclado.nextDouble();
-                                lstEmpleados.add(new EmpleadoAdministrativo(nombre_ad,Edad_ad,salarioBase_ad,bonificacionFija_ad);
+                                lstEmpleados.add(new EmpleadoAdministrativo(nombre_ad,Edad_ad,salarioBase_ad,bonificacionFija_ad));
+                                System.out.println("Su registro fue exitoso...\n");
 
 
                                 break;
@@ -97,7 +94,8 @@ public class Main {
                                 double Comision = teclado.nextDouble();
                                 System.out.println("Total de Ventas en el Mes: ");
                                 double totalVentas = teclado.nextDouble();
-                                lstEmpleados.add(new EmpleadoVentas(nombre_eV,Edad_eV,salarioBase_eV,Comision,totalVentas);
+                                lstEmpleados.add(new EmpleadoVentas(nombre_eV,Edad_eV,salarioBase_eV,Comision,totalVentas));
+                                System.out.println("Registro Completado...\n");
 
                                 break;
                             case 3:/*Empleado x Horas*/
@@ -112,11 +110,12 @@ public class Main {
                                 int horasTrabajdas= teclado.nextInt();
                                 System.out.println("Valor x Hora: ");
                                 double valorhora = teclado.nextDouble();
-                                lstEmpleados.add( new EmpleadoHoras(nombre_eH,Edad_eH,salarioBase_eH,horasTrabajdas,valorhora);
+                                lstEmpleados.add( new EmpleadoHoras(nombre_eH,Edad_eH,salarioBase_eH,horasTrabajdas,valorhora));
+                                System.out.println("Registro Completado con exito ...\n");
 
                                 break;
                             case 4:
-                                System.out.println(" Saliendo del sistema de Registro.");
+                                System.out.println(" Saliendo del sistema de Registro.\n");
                                 System.out.println("..........///.......///.......////....//");
                                 break;
                             default:
@@ -127,35 +126,112 @@ public class Main {
                     }while (opc1 != 4);
 
                     break;
-                case 2:/*Buscar empleados*/
+                case 2:/*Mostrar empleados Registrados*/
+                    int op;
+                    System.out.println('\n'+"Mostrar Empleados ");
+                    System.out.println(" 1. Mostrar Empleados Administrartivos");
+                    System.out.println(" 2. Mostrar Empleados Ventas");
+                    System.out.println(" 3. Mostrar Empleados x Horas");
+                    System.out.println(" 4. Mostrar todos los Empleados");
+                   op = teclado.nextInt();
+                    switch (op){
+                        case 1:/* Empleado administrativo*/
+                            for (Empleado e : lstEmpleados){
+                                if (e instanceof EmpleadoAdministrativo){
+                                    System.out.println(e);
+                                }
+                            }
+                            break;
+                        case 2:/*Empleado Ventas*/
+                            for (Empleado e : lstEmpleados){
+                                if (e instanceof EmpleadoVentas){
+                                    System.out.println(e);
+                                }
+                            }
+                            break;
+                        case 3:/*Empleado x Horas*/
+                            for (Empleado e : lstEmpleados){
+                                if (e instanceof EmpleadoHoras){
+                                    System.out.println(e);
+                                }
+                            }
+                            break;
+                        case 4:
+                            for (Empleado e : lstEmpleados){
+                                System.out.println(e);
+                                System.out.println('\n');
+                            }
+                            break;
+                        default:
+                            System.out.println(" Error ");
+                    }
+
+                    break;
+                case 3:/*Buscar empleados*/
+
 
                     String nombreE;
                     System.out.println("Cual es el nombre del empleado a buscar: ");
                     nombreE = teclado.next();
                     if (lstEmpleados.isEmpty()){
-                        System.out.println("La lista no tiene elementos");
+                        System.out.println("La lista no tiene elementos. \n");
                     }
-                   Empleado E1 = null;
+                    Empleado E1 = null;
                     for (Empleado e : lstEmpleados){
                         if(e.getNombre().equalsIgnoreCase(nombreE)){
-                           E1 = e;
-                            System.out.println(E1.mostrarInfo();
+                            E1 = e;
+                            System.out.println(E1.mostrarInfo());
                         }
                     }
+                    do {
+                        System.out.println("   Hacer Cambios o Calcular el salario \n ");
+                        System.out.println("1. Modificar Salario ");
+                        System.out.println("2. Calcular salario");
+                        System.out.println("3. Mostrar si es mayor de edad ");
+                        System.out.println("4.Salir ");
+                        opc2= teclado.nextInt();
+                        switch (opc2) {
+
+                            case 1:/*Modificar Salario Base*/
+                                System.out.println(" Cual es el valor que desea aumentar al salario base ");
+                                double aumento=teclado.nextDouble();
+                                for (Empleado e : lstEmpleados){
+                                    E1.setSalarioBase(E1.getSalarioBase() + aumento);
+                                }
+                                   System.out.println("Al salario base se le aumento $" + aumento );
+                                break;
+
+
+                            case 2:/*Calcular Salario*/
+                                System.out.println("Calcular Salario");
+                                double salario = E1.calcularSalario();
+                                System.out.println("Total del Salario: "+ salario+  "\n" );
+                                break;
+                            case 3:/*Mostrar si es mayor de edad*/
+
+                                boolean MayorEdad = false;
+                                for (Empleado e : lstEmpleados) {
+                                    if (E1.getEdad() >= 18) {
+                                        System.out.println(e);
+                                        MayorEdad = true;
+                                    }
+                                }
+                                if (!MayorEdad) System.out.println("El empleado es menor de Edad");
+                                System.out.println();
+
+                                break;
+                            case 4:
+                                System.out.println(" Saliendo del sistema de Registro.\n");
+                                System.out.println("..........///.......///.......////....//");
+                                break;
+                            default:
+                                System.out.println(" Error ");
+                        }
+                    }while (opc2 != 4);
 
                     break;
-                case 3:/*Mostrar empleados Registrados*/
 
-                    System.out.println(lstEmpleados);
-
-                    break;
-                case 4:/*Calcular Salario*/
-                    break;
-                case 5:/*Aumentar Salario Base*/
-                    break;
-                case 6:/*Mostrar empleados mayores de edad*/
-                    break;
-                case 7:/*Salir*/
+                case 4:
                     System.out.println(" Saliendo del sistema.");
                     System.out.println("..........///.......///.......////....//");
                     break;
@@ -163,12 +239,7 @@ public class Main {
                 System.out.println(" Error ");
             }
 
-
-        }while (opc!=7);
-
-
-
-
+        }while (opc!=4);
 
     }
 }
