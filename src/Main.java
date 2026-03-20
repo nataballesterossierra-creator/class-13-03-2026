@@ -116,7 +116,7 @@ public class Main {
                                 break;
                             case 4:
                                 System.out.println(" Saliendo del sistema de Registro.\n");
-                                System.out.println("..........///.......///.......////....//");
+                                System.out.println("..........///.......///.......////....//\n");
                                 break;
                             default:
                                 System.out.println(" Error ");
@@ -185,20 +185,18 @@ public class Main {
                     }
                     do {
                         System.out.println("   Hacer Cambios o Calcular el salario \n ");
-                        System.out.println("1. Modificar Salario ");
-                        System.out.println("2. Calcular salario");
-                        System.out.println("3. Mostrar si es mayor de edad ");
-                        System.out.println("4.Salir ");
+                        System.out.println("      1. Modificar Salario ");
+                        System.out.println("        2. Calcular salario");
+                        System.out.println("         3. Mostrar si es mayor de edad ");
+                        System.out.println("          4.Salir ");
                         opc2= teclado.nextInt();
                         switch (opc2) {
 
                             case 1:/*Modificar Salario Base*/
                                 System.out.println(" Cual es el valor que desea aumentar al salario base ");
                                 double aumento=teclado.nextDouble();
-                                for (Empleado e : lstEmpleados){
-                                    E1.setSalarioBase(E1.getSalarioBase() + aumento);
-                                }
-                                   System.out.println("Al salario base se le aumento $" + aumento );
+                                E1.setSalarioBase(E1.getSalarioBase() + aumento);
+                                System.out.println("Al salario base se le aumento $" + aumento );
                                 break;
 
 
@@ -208,21 +206,15 @@ public class Main {
                                 System.out.println("Total del Salario: "+ salario+  "\n" );
                                 break;
                             case 3:/*Mostrar si es mayor de edad*/
-
-                                boolean MayorEdad = false;
-                                for (Empleado e : lstEmpleados) {
-                                    if (E1.getEdad() >= 18) {
-                                        System.out.println(e);
-                                        MayorEdad = true;
-                                    }
+                                if (E1.getEdad()>= 18){
+                                    System.out.println("El empleado es Mayor de edad. "+ E1.getEdad()+ " Años \n");
+                                }else {
+                                    System.out.println("El empleado es menor de edad. "+ E1.getEdad() +" Años \n");
                                 }
-                                if (!MayorEdad) System.out.println("El empleado es menor de Edad");
-                                System.out.println();
 
                                 break;
                             case 4:
-                                System.out.println(" Saliendo del sistema de Registro.\n");
-                                System.out.println("..........///.......///.......////....//");
+                                System.out.println(" Volviendo al menu principal.\n");
                                 break;
                             default:
                                 System.out.println(" Error ");

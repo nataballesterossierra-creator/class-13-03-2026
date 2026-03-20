@@ -20,9 +20,8 @@ public class EmpleadoAdministrativo extends Empleado{
 
     @Override
     public String toString() {
-        return super.toString()+"EmpleadoAdministrativo{" +
-                "bonificacionFija=" + bonificacionFija +
-                '}';
+        return super.toString()+", Empleado Administrativo, " +
+                " Bonificacion Fija= " + bonificacionFija ;
     }
 
     public String mostrarInfo(){
@@ -37,7 +36,7 @@ public class EmpleadoAdministrativo extends Empleado{
 
     @Override
     public double calcularSalario() {
-        return getSalarioBase() + getBonificacionFija();
+        return getSalarioBase() + bonificacionFija;
     }
 
 

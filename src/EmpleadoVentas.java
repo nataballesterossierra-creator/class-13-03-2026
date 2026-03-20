@@ -30,10 +30,9 @@ public class EmpleadoVentas extends Empleado{
 
     @Override
     public String toString() {
-        return super.toString()+"EmpleadoVentas{" +
-                "Comision=" + Comision +
-                ", totalVentas=" + totalVentas +
-                '}';
+        return super.toString()+" EmpleadoVentas, " +
+                "Comision= " + Comision +
+                ", Total Ventas= " + totalVentas ;
     }
 
     public String mostrarInfo(){
@@ -48,6 +47,7 @@ public class EmpleadoVentas extends Empleado{
     }
     @Override
     public double calcularSalario() {
-        return getSalarioBase() + (totalVentas*Comision);
+        double comision = Comision / 100.0;
+        return getSalarioBase() + (totalVentas*comision);
     }
 }

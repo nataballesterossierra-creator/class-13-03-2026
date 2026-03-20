@@ -30,10 +30,9 @@ public class EmpleadoHoras extends Empleado{
 
     @Override
     public String toString() {
-        return super.toString()+ "EmpleadoHoras{" +
-                "horasTrabajadas=" + horasTrabajadas +
-                ", valorHora=" + valorHora +
-                '}';
+        return super.toString()+ " EmpleadoHoras " +
+                "horasTrabajadas= " + horasTrabajadas +
+                ", valorHora=" + valorHora;
     }
 
     public String mostrarInfo(){
@@ -49,7 +48,7 @@ public class EmpleadoHoras extends Empleado{
 
     @Override
     public double calcularSalario() {
-        return getSalarioBase() + (horasTrabajadas*valorHora);
+        return getSalarioBase() + (horasTrabajadas * valorHora);
     }
 
 }

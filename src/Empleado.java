@@ -41,11 +41,10 @@ public class Empleado {
 
     @Override
     public String toString() {
-        return "Empleado{" +
-                "Nombre='" + nombre + '\'' +
-                "Edad=" + Edad + '\''+
-                ", SalarioBase=" + salarioBase +
-                '}';
+        return "Empleado:" +
+                "Nombre= " + nombre + '\'' +
+                ", Edad= " + Edad + '\''+
+                ", SalarioBase=" + salarioBase ;
     }
     public String mostrarInfo(){
         System.out.println("Nombre: "+ nombre);
